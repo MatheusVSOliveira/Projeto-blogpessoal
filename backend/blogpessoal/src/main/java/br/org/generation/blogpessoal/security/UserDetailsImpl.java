@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import br.org.generation.blogpessoal.model.Usuario;
 
-public class UserDetailsImpl implements UserDetails
+public class UserDetailsImpl implements UserDetails // UserDetails = Interface
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -67,28 +67,5 @@ public class UserDetailsImpl implements UserDetails
 	public boolean isEnabled() 
 	{
 		return true;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
