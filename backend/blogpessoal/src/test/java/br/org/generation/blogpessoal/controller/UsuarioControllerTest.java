@@ -53,7 +53,7 @@ public class UsuarioControllerTest
     @DisplayName("✔ Cadastrar Usuário!") 
 	public void deveRealizarPostUsuario() 
 	{
-		HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuario);
+		HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuario); // criando requisição
 		
 		ResponseEntity <Usuario> resposta = testRestTemplate
 				.exchange("/usuarios/cadastrar", HttpMethod.POST, request, Usuario.class);
@@ -62,7 +62,7 @@ public class UsuarioControllerTest
 	@Test
 	@Order(2)
 	@DisplayName("👍 Listar todos os Usuários!")
-	public void deveMostrarTodosUsuarios() 
+	public void deveMostrarTodosUsuarios() // não precisa de requisição
 	{
 		ResponseEntity<String> resposta = testRestTemplate
 				.withBasicAuth("admin@email.com","admin123")
