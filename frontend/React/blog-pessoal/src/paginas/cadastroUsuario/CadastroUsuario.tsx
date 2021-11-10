@@ -4,11 +4,12 @@ import { Link, useHistory } from 'react-router-dom';
 import './CadastroUsuario.css';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
+import { toast } from 'react-toastify';
 
 
 
 function CadastroUsuario() {
-    
+
     let history = useHistory();
     const [confirmarSenha, setConfirmarSenha] = useState<String>("")
     const [user, setUser] = useState<User>(
@@ -45,11 +46,29 @@ function CadastroUsuario() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (user.senha.length >= 8  && confirmarSenha == user.senha) {
+        if (user.senha.length >= 8 && confirmarSenha == user.senha) {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
+            toast.success('Usuário cadastrado com sucesso!', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
+                draggable: false, /* Move a notificação de local quando TRUE */
+                theme: 'colored', /** Como a notificação será mostrada > colorida */
+                progress: undefined
+            })
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
+                draggable: false, /* Move a notificação de local quando TRUE */
+                theme: 'colored', /** Como a notificação será mostrada > colorida */
+                progress: undefined
+            })
         }
     }
 
@@ -58,7 +77,7 @@ function CadastroUsuario() {
             <Grid item xs={6} className='imagem2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
-                    <form onSubmit={onSubmit}> 
+                    <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />

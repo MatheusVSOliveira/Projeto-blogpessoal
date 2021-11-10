@@ -3,20 +3,38 @@ import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useHistory } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import { addToken } from '../../../store/tokens/Actions';
+import {toast} from 'react-toastify';
 
 function Navbar() {
-    const [token, setToken] = useLocalStorage('token')
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let history = useHistory();
 
+    const dispatch = useDispatch();
+
     function goLogout() {
-        setToken('')
-        alert('Usuário deslogado')
+        dispatch(addToken(''));
+        toast.info('Usuário deslogado', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
+            draggable: false, /* Move a notificação de local quando TRUE */
+            theme: 'colored', /** Como a notificação será mostrada > colorida */
+            progress: undefined 
+        })
         history.push('/login')
     }
-    return (
-        <>
-            <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
+
+    var navbarComponent;
+
+    if(token != ''){
+      navbarComponent = <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
                 <Toolbar variant="dense">
                     <Box mx={1} className='cursor' >
                         <Typography variant="h5" color="inherit">
@@ -62,6 +80,11 @@ function Navbar() {
 
                 </Toolbar>
             </AppBar>
+    }
+
+    return (
+        <>
+            {navbarComponent}
         </>
     )
 }

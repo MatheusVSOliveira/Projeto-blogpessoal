@@ -3,15 +3,30 @@ import {Typography, Box, Grid, Button} from '@material-ui/core';
 import './Home.css';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem'; 
-import { useHistory } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { Link, useHistory } from 'react-router-dom';
+import { TokenState } from '../../store/tokens/TokensReducer';
+import { useSelector } from 'react-redux';
+import {toast} from 'react-toastify';
 
 function Home() {
     
     let history = useHistory();
-    const [token,setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+    
     useEffect(()=> {
         if(token == ''){
+            toast.error('Você precisa estar logado!', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
+                draggable: false, /* Move a notificação de local quando TRUE */
+                theme: 'colored', /** Como a notificação será mostrada > colorida */
+                progress: undefined 
+            })
             history.push('/login')
         }
     }, [token])
@@ -28,7 +43,9 @@ function Home() {
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" className='botao'>Ver Postagens</Button>
+                        <Link to="/postagens" className="text-decorator-none">
+                            <Button variant="outlined" className='botao'>Ver Postagens</Button> 
+                        </Link> 
                     </Box>
                 </Grid>
                 <Grid item xs={6} >

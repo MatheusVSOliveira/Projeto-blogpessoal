@@ -4,17 +4,30 @@ import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
-import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import {toast} from 'react-toastify';
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let history = useHistory();
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado!', {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
+        draggable: false, /* Move a notificação de local quando TRUE */
+        theme: 'colored', /** Como a notificação será mostrada > colorida */
+        progress: undefined 
+    })
       history.push("/login")
 
     }
@@ -81,4 +94,4 @@ function ListaPostagem() {
   )
 }
 
-export default ListaPostagem; 
+export default ListaPostagem;
