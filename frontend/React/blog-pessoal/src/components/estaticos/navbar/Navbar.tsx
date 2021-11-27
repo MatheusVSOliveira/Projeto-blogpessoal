@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
 import { addToken } from '../../../store/tokens/Actions';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 function Navbar() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -26,22 +26,22 @@ function Navbar() {
             pauseOnHover: false, /* passando o mouse na notificação ela continua na tela quando TRUE */
             draggable: false, /* Move a notificação de local quando TRUE */
             theme: 'colored', /** Como a notificação será mostrada > colorida */
-            progress: undefined 
+            progress: undefined
         })
         history.push('/login')
     }
 
     var navbarComponent;
 
-    if(token != ''){
-      navbarComponent = <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
-                <Toolbar variant="dense">
-                    <Box mx={1} className='cursor' >
-                        <Typography variant="h5" color="inherit">
-                            Aquariologia
-                        </Typography>
-                    </Box>
-
+    if (token != '') {
+        navbarComponent = <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
+            <Toolbar variant="dense">
+                <Box className='cursor' >
+                    <Typography variant="h5" color="inherit">
+                       
+                    </Typography>
+                </Box>
+                <Box>
                     <Box display="flex" justifyContent="start">
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
@@ -58,7 +58,7 @@ function Navbar() {
                             </Box>
                         </Link>
                         <Link to="/temas" className="text-decorator-none">
-                            <Box mx={1} className='cursor'>
+                            <Box className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     temas
                                 </Typography>
@@ -71,15 +71,16 @@ function Navbar() {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Box mx={1} className='cursor' onClick={goLogout}>
+                        <Box className='cursor' onClick={goLogout}>
                             <Typography variant="h6" color="inherit">
                                 logout
                             </Typography>
                         </Box>
                     </Box>
+                </Box>
 
-                </Toolbar>
-            </AppBar>
+            </Toolbar>
+        </AppBar>
     }
 
     return (
