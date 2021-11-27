@@ -36,12 +36,12 @@ function Navbar() {
     if (token != '') {
         navbarComponent = <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
             <Toolbar variant="dense">
-                <Box className='cursor' >
+                <Box className='cursor'>
                     <Typography variant="h5" color="inherit">
                        
                     </Typography>
                 </Box>
-                <Box>
+                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     <Box display="flex" justifyContent="start">
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
