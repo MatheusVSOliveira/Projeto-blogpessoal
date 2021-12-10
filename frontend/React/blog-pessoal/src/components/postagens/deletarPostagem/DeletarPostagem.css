@@ -1,0 +1,24 @@
+.btn-color{
+    background-color:#224a59!important; 
+}
+
+.btn-center{
+    justify-content: center;
+}
+.back-color-post{
+    background-color: #dbf4fb;
+    border-radius: 5px;
+}
+.image-border-radius{
+    border-radius: 4px;
+}
+
+.text-post-format{
+   background-color: #dbf4fb;
+   font-family:Georgia, 'Times New Roman', Times, serif  !important; 
+}
+
+.title-format{
+    color:#213f57;
+   font-family:Georgia, 'Times New Roman', Times, serif  !important; 
+}

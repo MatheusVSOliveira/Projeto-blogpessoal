@@ -6,3 +6,7 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.navbar-color{
+    background-color: #33a3a7 !important; 
+}

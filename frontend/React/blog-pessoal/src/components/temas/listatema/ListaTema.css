@@ -1,3 +1,16 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.bottom-none{
+    display: none !important;;
+}
+.btn-color{
+    background-color:#224a59!important; 
+}
+.btn-center{
+    justify-content: center;
+}
+.image-border-radius{
+    border-radius: 4px;
+}

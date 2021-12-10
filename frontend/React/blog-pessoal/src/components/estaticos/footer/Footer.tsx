@@ -1,15 +1,16 @@
 import React from 'react';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Typography, Box, Grid } from '@material-ui/core';
 import './Footer.css';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { UserState } from '../../../store/user/UserReducer';
+
 
 function Footer() {
 
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
     );
 
@@ -18,13 +19,13 @@ function Footer() {
     if (token != '') {
         footerComponent = <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid alignItems="center" item xs={12}>
-                <Box className='box1'>
+                <Box className='footer-box-1'>
                     <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                        <Typography variant="h5" align="center" gutterBottom className='textos'>Siga-nos nas redes sociais </Typography>
+                        <Typography variant="h6" align="center" gutterBottom className='text-color-white'>Siga-me nas redes sociais </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" justifyContent="center">
-                        <a href="https://www.facebook.com/matheus.vinicius.123276" target="_blank">
-                            <FacebookIcon className='redes' />
+                        <a href="https://github.com/MatheusVSOliveira" target="_blank">
+                            <GitHubIcon className='redes' />
                         </a>
                         <a href="https://www.instagram.com/aquariologia/" target="_blank">
                             <InstagramIcon className='redes' />
@@ -34,15 +35,8 @@ function Footer() {
                         </a>
                     </Box>
                 </Box>
-                <Box className='box2'>
-                    <Box paddingTop={1}>
-                        <Typography variant="subtitle2" align="center" gutterBottom className='textos'>© 2020 Copyright:</Typography>
-                    </Box>
-                    <Box>
-                        <a target="_blank" href="https://brasil.generation.org" style={{ textDecoration: 'none' }}>
-                            <Typography variant="subtitle2" gutterBottom className='textos' align="center">brasil.generation.org</Typography>
-                        </a>
-                    </Box>
+                <Box className='footer-box-2' >
+                    <Typography variant="subtitle2" align="center" gutterBottom className='text-color-white'>Site criado por Matheus Oliveira ©</Typography>
                 </Box>
             </Grid>
         </Grid>

@@ -5,21 +5,24 @@ import { buscaId, post, put } from '../../../services/Service';
 import './CadastroTema.css';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { UserState } from '../../../store/user/UserReducer';
 import {toast} from 'react-toastify';
 
 
 function CadastroTema() {
     let history = useHistory();
     const{id} = useParams<{id:string}>();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>( 
         (state) => state.tokens
     );
 
     const[tema, setTema] = useState<Tema>({
         id:0,
-        descricao: ''
-    })
+        nome:'',
+        descricao: '',
+        imagem:''
+        
+    }) 
 
     useEffect(()=> {
         if(token == ''){
@@ -105,11 +108,13 @@ function CadastroTema() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm" className="margin">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro de temas</Typography>
+                <TextField value={tema.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
+                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" multiline={true} minRows={4} fullWidth /> 
+                <TextField value={tema.imagem} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="imagem" label="imagem" variant="outlined" name="imagem" margin="normal" fullWidth />
+                <Button type="submit" variant="contained" color="primary" className='btn-color'>
                     Finalizar
                 </Button>
             </form>

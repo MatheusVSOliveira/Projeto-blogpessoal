@@ -4,14 +4,23 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
-import { addToken } from '../../../store/tokens/Actions';
+import { UserState } from '../../../store/user/UserReducer';
+import { addToken } from '../../../store/user/Actions';
 import { toast } from 'react-toastify';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import HomeIcon from '@mui/icons-material/Home';
+
 
 function Navbar() {
-    const token = useSelector<TokenState, TokenState["tokens"]>(
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
     );
+    const tipo = useSelector<UserState, UserState["tipo"]>(
+        (state) => state.tipo
+    );
+
     let history = useHistory();
 
     const dispatch = useDispatch();
@@ -32,53 +41,44 @@ function Navbar() {
     }
 
     var navbarComponent;
+    var cadastrarTema;
+    var cadastrarPostagem;
+    var home;
+
+    if (tipo === 'Admin') {
+        cadastrarTema = <Link to="/formularioTema" className="text-decorator-none">
+            <Box mx={1} className='cursor'>
+                <PostAddIcon />
+            </Box>
+        </Link>
+
+        cadastrarPostagem = <Link to="/formularioPostagem" className="text-decorator-none">
+            <Box mx={1} className='cursor'>
+                <MenuBookIcon />
+            </Box>
+        </Link>
+
+        home = <Link to="/home" className="text-decorator-none">
+            <Box mx={1} className='cursor'>
+            <HomeIcon/>
+            </Box>
+        </Link>
+    }
+
 
     if (token != '') {
-        navbarComponent = <AppBar position="static" style={{ backgroundColor: "#1b759b"! }}>
-            <Toolbar variant="dense">
-                <Box className='cursor'>
-                    <Typography variant="h5" color="inherit">
-                       
-                    </Typography>
-                </Box>
-                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        navbarComponent = <AppBar position="static" className='navbar-color' >
+            <Toolbar variant="dense" >
+                <Box sx={{ display: { xs: 'flex', sm: 'block' } }}>
                     <Box display="flex" justifyContent="start">
-                        <Link to="/home" className="text-decorator-none">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    home
-                                </Typography>
-                            </Box>
-                        </Link>
-                        <Link to="/postagens" className="text-decorator-none">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    postagens
-                                </Typography>
-                            </Box>
-                        </Link>
-                        <Link to="/temas" className="text-decorator-none">
-                            <Box className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    temas
-                                </Typography>
-                            </Box>
-                        </Link>
-                        <Link to="/formularioTema" className="text-decorator-none">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    cadastrar tema
-                                </Typography>
-                            </Box>
-                        </Link>
-                        <Box className='cursor' onClick={goLogout}>
-                            <Typography variant="h6" color="inherit">
-                                logout
-                            </Typography>
+                        {home}
+                        {cadastrarTema}
+                        {cadastrarPostagem}
+                        <Box mx={1} display='flex' className='cursor'  onClick={goLogout}> 
+                            <ExitToAppIcon />
                         </Box>
                     </Box>
                 </Box>
-
             </Toolbar>
         </AppBar>
     }

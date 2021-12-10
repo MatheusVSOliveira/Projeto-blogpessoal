@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core'; 
+import {Typography, Box, Grid, Button} from '@mui/material'; 
 import './Home.css';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem'; 
 import { Link, useHistory } from 'react-router-dom';
-import { TokenState } from '../../store/tokens/TokensReducer';
+import { UserState } from '../../store/user/UserReducer';
 import { useSelector } from 'react-redux';
 import {toast} from 'react-toastify';
 
 function Home() {
     
     let history = useHistory();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => state.tokens
+    const token = useSelector<UserState, UserState["tokens"]>(
+        (state) => state.tokens 
     );
     
     useEffect(()=> {
@@ -33,25 +32,14 @@ function Home() {
 
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>  
-                <Grid alignItems="center" xs={12} sm={6}> 
-                    <Box paddingX={2} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>expresse aqui os seus pensamentos e opiniões!</Typography>
-                    </Box>
-                    <Box display="flex" justifyContent="center">
-                        <Box marginRight={1}>
-                            <ModalPostagem />
-                        </Box>
-                        <Link to="/postagens" className="text-decorator-none">
-                            <Button variant="outlined" className='botao'>Ver Postagens</Button> 
-                        </Link> 
+            <Grid container direction="row" justifyContent="center" alignItems="center">  
+                <Grid alignItems="center" xs={12} className='caixa'>   
+                    <Box display='flex' flexDirection='column' alignItems= 'center' justifyContent='center' paddingX={2} paddingBottom={1} minHeight='28vh'>  
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center"  className='titulo'>CURIOSIDADES SOBRE ORGANISMOS AQUÁTICOS</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo2'> Os melhores conteúdos sobre organismos aquáticos estão aqui, mergulhe nessa jornada!</Typography>
                     </Box>
                 </Grid>
-                <Grid xs={12} sm={6} >
-                    <img src="https://i.imgur.com/ljTeIsM.png" alt="" width="480px" height="480px" /> 
-                </Grid>
-                <Grid xs={12} className='postagens'>
+                <Grid xs={12}>
                     <TabPostagem/>
                 </Grid>
             </Grid>  

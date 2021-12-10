@@ -1,15 +1,35 @@
-.textos1{
-    font-weight: 'bold'!important;
+.text-font-weight{
+    font-weight: bold !important;   
 }
-.imagem{
-    background-image: url(https://i.imgur.com/ljTeIsM.png);
+
+.text-color-login{
+    color:#224a59!important;
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}
+.btnColor{
+    background-color:#224a59 !important;
+    color:#d7e7ed!important;
+}
+
+.background-login{
+    background-image: url(https://i.imgur.com/nNTjfQS.jpg);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
-    
 }
-.text-decorator-none{
-    text-decoration: none;
+.form-format-login{
+    background-color:white;
+    border-radius: 15px;
+    width: 250px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-top: 24px;
+    padding-bottom: 12px;
+    margin: 25px;
 }
+

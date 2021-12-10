@@ -1,18 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
 .caixa{
-    background-color: #5DA4C6;
+    background-image: linear-gradient(to bottom, #2fa4a8, #0b3046);
+  
 }
 
 .titulo{
     color: white !important; 
     font-weight: 'bold' !important;
+    font-family:'Bebas Neue'!important; 
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+    
 }
 
-.botao{
-    border-color: white !important; 
-    background-color: #1b759b; 
-    color: white !important;
-}
-
-.postagens{
-    background-color: white;
+.titulo2{
+    color: white !important; 
+    font-weight: 'bold' !important;
+    font-family: Arial, Verdana, Helvetica, sans-serif!important; 
+    font-size: 1.2em;
+    max-width: 690px;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315);
+    
 }
