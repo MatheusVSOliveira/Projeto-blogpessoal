@@ -85,7 +85,7 @@ function DeletarPostagem() {
                   </Typography>
                 </Box>
                 <Typography color="textSecondary" gutterBottom>
-                  Artigo {postagem?.id}
+                  {postagem?.tema?.nome}
                 </Typography>
                 <Box display='flex' alignItems='center' paddingY={2}>
                   <Typography variant="h4" component="h5" className='title-format'>

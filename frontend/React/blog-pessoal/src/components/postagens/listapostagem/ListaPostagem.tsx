@@ -67,7 +67,7 @@ function ListaPostagem() {
                 <Card variant="outlined">
                   <CardContent>
                     <Typography color="textSecondary" gutterBottom>
-                      Artigo {post.id}
+                      {post.tema?.nome}
                     </Typography>
                     <Box display='flex' alignItems='center' paddingY={2}>
                       <Typography variant="h4" component="h5" className='title-format'>
