@@ -49,7 +49,7 @@ function CadastroUsuario() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (user.senha.length >= 8 && user.nome.length > 2 && confirmarSenha === user.senha) {
-            if (user.usuario.indexOf("@") != -1 && user.usuario.indexOf(".") != -1) { 
+            if (user.usuario.indexOf("@") != -1 && user.usuario.indexOf(".") != -1) {
                 cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
                 toast.success('Usuário cadastrado com sucesso!', {
                     position: 'top-right',
@@ -91,30 +91,35 @@ function CadastroUsuario() {
     }
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'> 
-           <Grid item xs={12} sm={6} className='img-cadastro'></Grid>
+        <Grid container direction='row' justifyContent='center' alignItems='center'>
+            <Grid item xs={12} sm={6} className='img-cadastro'></Grid>
             <Grid item xs={12} sm={6} alignItems='center'>
-                <Box paddingX={6} paddingTop={2}> 
+                <Box paddingX={6} paddingTop={2}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='text-format-cadastrar'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='confirmar senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                        <Box marginBottom={4} marginTop={2} textAlign='center'> 
-                            <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btn-cancelar'>
-                                    Cancelar
+                        <Box display='flex' marginBottom={4} marginTop={2} justifyContent='center'>
+                            <Box>
+                                <Link to='/login' className='text-decorator-none'>
+                                    <Button variant='contained' color='secondary' className='btn-cancelar'>
+                                        Cancelar
+                                    </Button>
+                                </Link>
+                            </Box>
+                            <Box>
+                                <Button type='submit' variant='contained' color='primary' className='btn-cadastrar'>
+                                    Cadastrar
                                 </Button>
-                            </Link>
-                            <Button type='submit' variant='contained' color='primary' className='btn-cadastrar'>
-                                Cadastrar
-                            </Button>
+                            </Box>
+
                         </Box>
                     </form>
                 </Box>
             </Grid>
-            
+
         </Grid>
     );
 }
