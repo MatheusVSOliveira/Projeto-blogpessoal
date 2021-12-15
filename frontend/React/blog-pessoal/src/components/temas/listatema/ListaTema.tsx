@@ -70,7 +70,7 @@ function ListaTema() {
                     <Box display='flex' justifyContent='center' padding={2}>
                       <img src={tema.imagem} alt="" width="100%" height='270px' className='image-border-radius' />
                     </Box>
-                    <Box display='flex' justifyContent='center' alignItems='center' paddingX={2}> 
+                    <Box display='flex' justifyContent='center'  minHeight='120px' paddingX={2}>  
                       <Typography variant="body1" component="body" textAlign='justify'>
                         {tema.descricao}
                       </Typography>
@@ -108,3 +108,4 @@ function ListaTema() {
 
 
 export default ListaTema;
+
