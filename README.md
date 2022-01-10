@@ -39,7 +39,6 @@
  <a href="#installation">Installation</a> • 
  <a href="#getting-started">Get Started</a> • 
  <a href="#technologies">Technologies</a> • 
- <a href="#license">License</a>
 </p>
 
 ## 📌About
