@@ -84,7 +84,7 @@
   ---
 ### 1. Clone this repository
 ```
-git clone https://github.com/Yuri-stack/BlogPessoalGen.git
+git clone https://github.com/MatheusVSOliveira/Projeto-blogpessoal-Spring_React.git
 ```
 ---
 ### 2. Install the dependencies
@@ -100,35 +100,26 @@ yarn
 
 ### 3. Initializing the BackEnd
 
-If you have a ***BackEnd local***, start it before the Angular Project
+If you have a ***BackEnd local***, start it before the React Project
 
-If you have a ***Hosted BackEnd***, you'll need configure the Routes and Models of Angular Project with your BackEnd 
+If you have a ***Hosted BackEnd***, you'll need configure the Routes and Models of React Project with your BackEnd 
 
 ## 🎮Getting Started
-
-<p align="center">
-    <em>
-        (Após a instalação, aqui você explica como outra pessoa desenvolvedora pode estar iniciando o seu Projeto. Aqui cabe a você, e também as especificações do seu projeto, como explicar a forma de inicialização)<br><br>
-        (After installation, here you explain how another developer can be starting your Project. Here it's up to you, and also the specifications of your project, how to explain how to start)<br>
-    </em>
-</p>
 
 1. Run the backend or configure as explained above 
 
 2. Run the project
 ```
-ng serve
+npm start or yarn start
 ```
-3. Now, open your browser and navigate to: http://localhost:4200
+3. Now, open your browser and navigate to: http://localhost:3000
 
 ## 🌐Technologies
 
-<p align="center">
-    <em>
-        (Liste as tecnologias usadas no seu Projeto)<br>
-        (List the technologies used in your Project)<br>
-    </em>
-</p>
-
-- [AngularJS](https://angular.io/)
+- [Java](https://www.oracle.com/java/)
+- [Spring](https://spring.io/)
+- [MySQL](https://www.mysql.com/)
+- [Node.js](https://nodejs.org/en/)
+- [ReactJS](https://reactjs.org/)
+- [Material-UI](https://mui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
