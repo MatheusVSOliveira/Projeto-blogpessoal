@@ -63,21 +63,14 @@
 - Posts, Themes and User CRUD
 - Custom Alerts, Sorting, Searching and Admin Role
 - Control of Logged Users
-- Documentation with Compodoc
+- User Authentication
 
 ## 📕Installation
-
-<p align="center">
-    <em>
-        (Explique como uma pessoa desenvolvedora pode estar fazendo a instalação do seu Projeto em outra máquina. Aqui cabe a você, e também as especificações do seu projeto, como explicar a forma de instalação)<br><br>
-        (Explain how another developer might be installing your Project on their machine. Here it's up to you, and also the specifications of your project, how to explain how to install it)<br>
-    </em>
-</p>
 
 **You must have already installed**
 - [Node.js](https://nodejs.org/en/)
 - [Npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-- [Angular](https://angular.io/guide/setup-local)
+- [React](https://reactjs.org/)
 - [MySQL](https://dev.mysql.com/downloads/)
 
 **Recommendations**
